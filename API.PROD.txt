@@ -1,6 +1,6 @@
-[GET]  http://localhost:5000/api/v1/products
+[GET]  https://nhannt2-api.vercel.app/api/v1/products
 
-[POST]  http://localhost:5000/api/v1/product/new
+[POST]  https://nhannt2-api.vercel.app/api/v1/product/new
 {
     "name": "product1",
     "description": "aaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaa",
@@ -12,7 +12,7 @@
     }
 }
 
-[PUT]  http://localhost:5000/api/v1/product/:id
+[PUT]  https://nhannt2-api.vercel.app/api/v1/product/:id
 {
     "name": "product_nhannt",
     "description": "aaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaa",
@@ -24,23 +24,23 @@
     }
 }
 
-[DELETE]  http://localhost:5000/api/v1/product/:id
+[DELETE]  https://nhannt2-api.vercel.app/api/v1/product/:id
 
-[GET]  http://localhost:5000/api/v1/product/:id
+[GET]  https://nhannt2-api.vercel.app/api/v1/product/:id
 
-[POST]  http://localhost:5000/api/v1/register
+[POST]  https://nhannt2-api.vercel.app/api/v1/register
 {
     "name":"Nguyễn Trọng Nhân",
     "email":"nhan.nguyentrong.dev@gmail.com",
     "password":"1234567890"
 }
 
-[POST]  http://localhost:5000/api/v1/login
+[POST]  https://nhannt2-api.vercel.app/api/v1/login
 {
     "email":"nhan.nguyentrong.dev@gmail.com",
     "password":"1234567890"
 }
 
-[GET]  http://localhost:5000/api/v1/logout
+[GET]  https://nhannt2-api.vercel.app/api/v1/logout
 
 2:44:22  https://www.youtube.com/watch?v=AN3t-OmdyKA&pbjreload=102

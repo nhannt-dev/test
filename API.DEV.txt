@@ -1,0 +1,57 @@
+[GET]  http://localhost:5000/api/v1/products
+
+[POST]  http://localhost:5000/api/v1/product/new
+{
+    "name": "product1",
+    "description": "aaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaa",
+    "price": 1500,
+    "category": "Laptop",
+    "images": {
+        "public_id": "Sample img",
+        "url": "Sample url"
+    }
+}
+
+[PUT]  http://localhost:5000/api/v1/product/:id
+{
+    "name": "product_nhannt",
+    "description": "aaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaa",
+    "price": 1500,
+    "category": "Laptop",
+    "images": {
+        "public_id": "Sample img",
+        "url": "Sample url"
+    }
+}
+
+[DELETE]  http://localhost:5000/api/v1/product/:id
+
+[GET]  http://localhost:5000/api/v1/product/:id
+
+[POST]  http://localhost:5000/api/v1/register
+{
+    "name":"Nguyễn Trọng Nhân",
+    "email":"nhan.nguyentrong.dev@gmail.com",
+    "password":"1234567890"
+}
+
+[POST]  http://localhost:5000/api/v1/login
+{
+    "email":"nhan.nguyentrong.dev@gmail.com",
+    "password":"1234567890"
+}
+
+[GET]  http://localhost:5000/api/v1/logout
+
+[POST]  http://localhost:5000/api/v1/password/forgot
+{
+    "email": "nguyentrongnhan04072000@gmail.com"
+}
+
+[PUT]  http://localhost:5000/api/v1/password/reset/:token
+{
+  "confirmPassword": "0987654321",  
+  "password": "1234567890"
+}
+
+3:13:51  https://www.youtube.com/watch?v=AN3t-OmdyKA&pbjreload=102

@@ -1,4 +1,5 @@
 const mongoose = require("mongoose")
+const { ObjectId } = mongoose.Schema.Types
 
 const productSchema = new mongoose.Schema({
     name: {
@@ -61,6 +62,11 @@ const productSchema = new mongoose.Schema({
             },
         },
     ],
+    user: {
+        type: ObjectId,
+        ref: "User",
+        required: true,
+    },
     createdAt: {
         type: Date,
         default: Date.now,
