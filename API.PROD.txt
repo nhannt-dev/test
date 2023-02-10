@@ -1,6 +1,6 @@
-[GET]  https://nhannt2-e0wn69f8a-nhannt-dev.vercel.app/api/v1/products
+[GET]  https://nhannt2-api.vercel.app/api/v1/products
 
-[POST]  https://nhannt2-e0wn69f8a-nhannt-dev.vercel.app/api/v1/product/new
+[POST]  https://nhannt2-api.vercel.app/api/v1/admin/product/new
 {
     "name": "product1",
     "description": "aaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaa",
@@ -12,7 +12,7 @@
     }
 }
 
-[PUT]  https://nhannt2-e0wn69f8a-nhannt-dev.vercel.app/api/v1/product/:id
+[PUT]  https://nhannt2-api.vercel.app/api/v1/admin/product/:id
 {
     "name": "product_nhannt",
     "description": "aaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaa",
@@ -24,34 +24,73 @@
     }
 }
 
-[DELETE]  https://nhannt2-e0wn69f8a-nhannt-dev.vercel.app/api/v1/product/:id
+[DELETE]  https://nhannt2-api.vercel.app/api/v1/product/:id
 
-[GET]  https://nhannt2-e0wn69f8a-nhannt-dev.vercel.app/api/v1/product/:id
+[GET]  https://nhannt2-api.vercel.app/api/v1/product/:id
 
-[POST]  https://nhannt2-e0wn69f8a-nhannt-dev.vercel.app/api/v1/register
+[PUT]  https://nhannt2-api.vercel.app/api/v1/review
+{
+    "productId": ":id",
+    "comment": "nhannt comment",
+    "rating": 3
+}
+
+[GET]  https://nhannt2-api.vercel.app/api/v1/reviews?id=:id
+
+[DELETE]  https://nhannt2-api.vercel.app/api/v1/reviews?id=:id&productId=:id
+
+[POST]  https://nhannt2-api.vercel.app/api/v1/register
 {
     "name":"Nguyễn Trọng Nhân",
     "email":"nhan.nguyentrong.dev@gmail.com",
     "password":"1234567890"
 }
 
-[POST]  https://nhannt2-e0wn69f8a-nhannt-dev.vercel.app/api/v1/login
+[POST]  https://nhannt2-api.vercel.app/api/v1/login
 {
     "email":"nhan.nguyentrong.dev@gmail.com",
     "password":"1234567890"
 }
 
-[GET]  https://nhannt2-e0wn69f8a-nhannt-dev.vercel.app/api/v1/logout
+[GET]  https://nhannt2-api.vercel.app/api/v1/logout
 
-[POST]  https://nhannt2-e0wn69f8a-nhannt-dev.vercel.app/api/v1/password/forgot
+[POST]  https://nhannt2-api.vercel.app/api/v1/password/forgot
 {
     "email": "nguyentrongnhan04072000@gmail.com"
 }
 
-[PUT]  https://nhannt2-e0wn69f8a-nhannt-dev.vercel.app/api/v1/password/reset/:token
+[PUT]  https://nhannt2-api.vercel.app/api/v1/password/reset/:token
 {
-  "confirmPassword": "1234567890",  
+  "confirmPassword": "1234567890",
   "password": "1234567890"
 }
 
-3:22:01  https://www.youtube.com/watch?v=AN3t-OmdyKA&pbjreload=102
+[GET]  https://nhannt2-api.vercel.app/api/v1/me
+
+[PUT]  https://nhannt2-api.vercel.app/api/v1/password/update
+{
+    "oldPassword": "1234567890",
+    "newPassword": "0987654321",
+    "confirmPassword": "0987654321"
+}
+
+[PUT]  https://nhannt2-api.vercel.app/api/v1/me/update
+{
+    "name": "Nguyễn Trọng Nhân",
+    "email": "nguyentrongnhan04072000@gmail.com"
+}
+
+[GET]  https://nhannt2-api.vercel.app/api/v1/admin/users
+
+[GET]  https://nhannt2-api.vercel.app/api/v1/admin/user/:id
+
+[PUT]  https://nhannt2-api.vercel.app/api/v1/admin/user/:id
+{
+    "name": "Nguyễn Trọng Nhân",
+    "email": "nguyentrongnhan04072000@gmail.com",
+    "role": "admin"
+}
+
+[DELETE]  https://nhannt2-api.vercel.app/api/v1/admin/user/:id
+
+4:07:57
