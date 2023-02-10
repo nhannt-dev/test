@@ -1,6 +1,6 @@
 [GET]  http://localhost:5000/api/v1/products
 
-[POST]  http://localhost:5000/api/v1/product/new
+[POST]  http://localhost:5000/api/v1/admin/product/new
 {
     "name": "product1",
     "description": "aaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaa",
@@ -12,7 +12,7 @@
     }
 }
 
-[PUT]  http://localhost:5000/api/v1/product/:id
+[PUT]  http://localhost:5000/api/v1/admin/product/:id
 {
     "name": "product_nhannt",
     "description": "aaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaa",
@@ -50,8 +50,36 @@
 
 [PUT]  http://localhost:5000/api/v1/password/reset/:token
 {
-  "confirmPassword": "0987654321",  
+  "confirmPassword": "1234567890",
   "password": "1234567890"
 }
 
-3:13:51  https://www.youtube.com/watch?v=AN3t-OmdyKA&pbjreload=102
+[GET]  http://localhost:5000/api/v1/me
+
+[PUT]  http://localhost:5000/api/v1/password/update
+{
+    "oldPassword": "1234567890",
+    "newPassword": "0987654321",
+    "confirmPassword": "0987654321"
+}
+
+[PUT]  http://localhost:5000/api/v1/me/update
+{
+    "name": "Nguyễn Trọng Nhân",
+    "email": "nguyentrongnhan04072000@gmail.com"
+}
+
+[GET]  http://localhost:5000/api/v1/admin/users
+
+[GET]  http://localhost:5000/api/v1/admin/user/:id
+
+[PUT]  http://localhost:5000/api/v1/admin/user/:id
+{
+    "name": "Nguyễn Trọng Nhân",
+    "email": "nguyentrongnhan04072000@gmail.com",
+    "role": "admin"
+}
+
+[DELETE]  http://localhost:5000/api/v1/admin/user/:id
+
+3:47:03  https://www.youtube.com/watch?v=AN3t-OmdyKA&pbjreload=102

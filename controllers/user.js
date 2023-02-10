@@ -23,7 +23,7 @@ exports.registerUser  = catchAsyncErrors(async (req, res, next) => {
 exports.loginUser = catchAsyncErrors(async (req, res, next) => {
     const { email, password } = req.body
     if (!email || !password) {
-        return next(new ErrorHander('Vui lòng nhập đầy đủ thông tin', 400));
+        return next(new ErrorHander('Vui lòng nhập đầy đủ thông tin', 400))
     }
     const user = await User.findOne({ email }).select('+password')
     if (!user) {
@@ -44,7 +44,7 @@ exports.logout = catchAsyncErrors(async (req, res, next) => {
     res.status(200).json({
         success: true,
         message: 'Thoát tài khoản thành công!',
-      });
+      })
 })
 
 exports.forgotPassword = catchAsyncErrors(async (req, res, next) => {
@@ -91,4 +91,86 @@ exports.resetPassword = catchAsyncErrors(async (req, res, next) => {
     user.resetPasswordExpire = undefined
     await user.save()
     sendToken(user, 200, res)
+})
+
+exports.getUserDetails = catchAsyncErrors(async (req, res, next) => {
+    const user = await User.findById(req.user.id)
+    res.status(200).json({
+        success: true,
+        user
+    })
+})
+
+exports.updatePassword = catchAsyncErrors(async (req, res, next) => {
+    const user = await User.findById(req.user.id).select("+password")
+    const isPasswordMatched = await user.comparePassword(req.body.oldPassword)
+    if (!isPasswordMatched) {
+      return next(new ErrorHander("Mật khẩu cũ không đúng", 400))
+    }
+    if (req.body.newPassword !== req.body.confirmPassword) {
+      return next(new ErrorHander("Mật khẩu của 2 trường không khớp", 400))
+    }
+    user.password = req.body.newPassword
+    await user.save()
+    sendToken(user, 200, res)
+})
+
+exports.updateProfile = catchAsyncErrors(async (req, res, next) => {
+    const newUserData = {
+        name: req.body.name,
+        email: req.body.email
+    }
+    const user = await User.findByIdAndUpdate(req.user.id, newUserData, {
+        new: true,
+        runValidators: true,
+        useFindAndModify: false
+    })
+    sendToken(user, 200, res)
+})
+
+exports.getAllUser = catchAsyncErrors(async (req, res, next) => {
+    const users = await User.find()
+    const usersCount = await User.countDocuments()
+    res.status(200).json({
+      success: true,
+      users,
+      usersCount
+    })
+})
+
+exports.getSingleUser = catchAsyncErrors(async (req, res, next) => {
+    const user = await User.findById(req.params.id)
+    if (!user) {
+        return next(new ErrorHander(`Người dùng không tồn tại với ID này: ${req.params.id}`))
+    }
+    res.status(200).json({
+        success: true,
+        user
+    })
+})
+
+exports.updateUserRole = catchAsyncErrors(async (req, res, next) => {
+    const newUserData = {
+        name: req.body.name,
+        email: req.body.email,
+        role: req.body.role
+    }
+    const user = await User.findByIdAndUpdate(req.params.id, newUserData, {
+        new: true,
+        runValidators: true,
+        useFindAndModify: false
+    })
+    sendToken(user, 200, res)
+})
+
+exports.deleteUser = catchAsyncErrors(async (req, res, next) => {
+    const user = await User.findById(req.params.id)
+    if (!user) {
+      return next(new ErrorHander(`Người dùng không tồn tại với ID này: ${req.params.id}`, 400))
+    }
+    await user.remove()
+    res.status(200).json({
+      success: true,
+      message: "Xóa người dùng thành công!"
+    })
 })
