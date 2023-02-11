@@ -2,6 +2,7 @@ const express = require("express")
 const app = express()
 const productRouter = require('./routes/product')
 const userRouter = require('./routes/user')
+const orderRouter = require('./routes/order')
 const cookieParser = require("cookie-parser")
 const bodyParser = require("body-parser")
 const fileUpload = require("express-fileupload")
@@ -15,6 +16,7 @@ app.use(fileUpload())
 
 app.use('/api/v1', productRouter)
 app.use('/api/v1', userRouter)
+app.use('/api/v1', orderRouter)
 
 app.use(errorMiddleware)
 

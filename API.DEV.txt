@@ -93,4 +93,48 @@
 
 [DELETE]  http://localhost:5000/api/v1/admin/user/:id
 
-4:07:57
+[POST]  http://localhost:5000/api/v1/order/new
+{
+    "itemsPrice": 200,
+    "taxPrice": 36,
+    "shippingPrice": 100,
+    "totalPrice": 336,
+    "orderItems": [
+        {
+            "product": "63e44b4ac156f5c32e354525",
+            "name": "product2",
+            "price": 1500,
+            "image": "Sample img",
+            "quantity": 1
+        }
+    ],
+    "shippingInfo": {
+        "address": "40, Phú Hữu, phường 14, quận 5",
+        "city": "HCMC",
+        "country": "Vietnam",
+        "pinCode": 70000,
+        "phoneNo": "0356035625"
+    },
+    "paymentInfo": {
+        "id": "sample_id",
+        "status": "success"
+    }
+}
+
+[GET]  http://localhost:5000/api/v1/order/:id
+
+[GET]  http://localhost:5000/api/v1/orders/me
+
+[GET]  http://localhost:5000/api/v1/admin/orders
+
+[PUT]  http://localhost:5000/api/v1/admin/order/:id
+{
+    "status": "Delivered"
+}
+{
+    "status": "Shipped"
+}
+
+[DELETE]  http://localhost:5000/api/v1/admin/order/:id
+
+4:43:13
